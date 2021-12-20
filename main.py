@@ -1,10 +1,9 @@
-from typing import Text
 import speech_recognition as sr
 import gtts
 from playsound import playsound
 
 
-r = sr.Recognizer
+r = sr.Recognizer()
 
 def get_audio():
     with sr.Microphone() as source:
@@ -24,4 +23,6 @@ def audio_to_text (audio):
 
 
     if __name__ == "__main__":
-        a = get audio
+        a = get_audio ()
+        command = audio_to_text(a)
+        print(command)
