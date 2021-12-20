@@ -6,6 +6,10 @@ import os
 
 
 r = sr.Recognizer()
+
+token = "secret_HwsHYl6EX7WUJMTTXZOj3aUEa0MMCtu76sdqfpMwxXg"
+database_id = "5401e5efc6dd41b88e69b738d267844e"
+
 ACTIVATION_COMMAND = "Hello"
 
 def get_audio():
