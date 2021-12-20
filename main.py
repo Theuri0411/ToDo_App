@@ -1,15 +1,19 @@
+from gtts.tts import gTTS
 import speech_recognition as sr
 import gtts
 from playsound import playsound
+import os
 
 
 r = sr.Recognizer()
+ACTIVATION_COMMAND = "Hello G"
 
 def get_audio():
     with sr.Microphone() as source:
         print ("Say Something")
         audio = r.listen(source)
     return audio
+
 
 def audio_to_text (audio):
     text = ""
@@ -22,7 +26,24 @@ def audio_to_text (audio):
     return text
 
 
-    if __name__ == "__main__":
+def play_sound(text):
+    try:
+        tts = gtts.gTTS(text)
+        tempfile = "../temp.mp3"
+        tts.save(tempfile)
+        playsound (tempfile)
+        os.remove (tempfile)
+    except AssertionError:
+        print("Could Not Play Sound")
+
+
+if __name__ == "__main__":
+    while True:
         a = get_audio ()
         command = audio_to_text(a)
-        print(command)
+        
+
+        if ACTIVATION_COMMAND in command.lower():
+            print("Activate")
+
+
