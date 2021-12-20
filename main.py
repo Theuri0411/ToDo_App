@@ -6,7 +6,7 @@ import os
 
 
 r = sr.Recognizer()
-ACTIVATION_COMMAND = "Hello G"
+ACTIVATION_COMMAND = "Hello"
 
 def get_audio():
     with sr.Microphone() as source:
@@ -45,5 +45,17 @@ if __name__ == "__main__":
 
         if ACTIVATION_COMMAND in command.lower():
             print("Activate")
+            playsound ("What Can I do for You?")
+
+
+            note = get_audio()
+            note = audio_to_text(note)
+
+
+            if note:
+                playsound (note)
+
+
+                
 
 
