@@ -3,12 +3,18 @@ import speech_recognition as sr
 import gtts
 from playsound import playsound
 import os
+from datetime import datetime
+from notion import NotionClient
+
 
 
 r = sr.Recognizer()
 
 token = "secret_HwsHYl6EX7WUJMTTXZOj3aUEa0MMCtu76sdqfpMwxXg"
 database_id = "5401e5efc6dd41b88e69b738d267844e"
+client = NotionClient(token, database_id)
+
+
 
 ACTIVATION_COMMAND = "Hello"
 
@@ -58,6 +64,14 @@ if __name__ == "__main__":
 
             if note:
                 playsound (note)
+
+                now = datetime.now().astimezone().isoformat()
+                res = client.create_page(note, now, status="Active")
+
+                if res.status_code == 200:
+                    play_sound = "Start New Item"
+
+
 
 
                 
