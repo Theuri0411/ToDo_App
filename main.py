@@ -16,7 +16,7 @@ client = NotionClient(token, database_id)
 
 
 
-ACTIVATION_COMMAND = "Hello"
+ACTIVATION_COMMAND = "Hello sir"
 
 def get_audio():
     with sr.Microphone() as source:
