@@ -44,3 +44,8 @@ class NotionClient:
                     ]
                 }
             }}
+
+        data = json.dumps (data)
+        res = requests.post(create_url, headers=self.headers, data=data)
+        print (res.status_code)
+        return res
