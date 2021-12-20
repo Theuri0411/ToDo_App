@@ -1,4 +1,3 @@
-from gtts.tts import gTTS
 import speech_recognition as sr
 import gtts
 from playsound import playsound
@@ -16,7 +15,7 @@ client = NotionClient(token, database_id)
 
 
 
-ACTIVATION_COMMAND = "Hello sir"
+ACTIVATION_COMMAND = "Hi"
 
 def get_audio():
     with sr.Microphone() as source:
@@ -39,7 +38,7 @@ def audio_to_text (audio):
 def play_sound(text):
     try:
         tts = gtts.gTTS(text)
-        tempfile = "../temp.mp3"
+        tempfile = "./temp.mp3"
         tts.save(tempfile)
         playsound (tempfile)
         os.remove (tempfile)
@@ -55,7 +54,7 @@ if __name__ == "__main__":
 
         if ACTIVATION_COMMAND in command.lower():
             print("Activate")
-            playsound ("What Can I do for You?")
+            playsound ("What can I do for you?")
 
 
             note = get_audio()

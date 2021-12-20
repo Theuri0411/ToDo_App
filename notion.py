@@ -29,16 +29,16 @@ class NotionClient:
                 },
                 "Date": {
                     "date": {
-                        "start": date,
-                        "end": None
-                    }
+                            "start": date,
+                            "end": None
+                            }
               
                 },
                 "Status": {
                     "rich_text": [
                         {
                             "text": {
-                                "content": description
+                                "content": status
                             }
                         }
                     ]
